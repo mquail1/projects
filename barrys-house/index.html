@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Project Overview: Barry's House</title>
+</head>
+<body>
+    <nav>
+        <h1 class="title">Project Overview: Barry's House</h1>
+        <div class="nav--socials">
+            <!--! Add later: <h1>Projects</h1> -->
+            <h1>Resume</h1>
+        </div>
+    </nav>
+    <header>
+        <div class="card">
+            <div class="card--cover"><a href="https://youtu.be/CL4Ag2Dv2Io" target="#"><img src="./images/card-cover.png"></a></div>
+            <div class="card--description">
+                <h1>Project Overview: "Barry's House"</h1>
+                <p>Contributor: 3D Modeling, Unity shaders, Scripting</p>
+            </div>
+        </div>
+    </header>
+    <main>
+    <div class="description" id="first">
+        <h2>Project Description</h2>
+        <p>Barry's House is a Unity TwitchLib project : it connects the Unity build to the client's Twitch channel.</p>
+        <p>The purpose of the project is to allow the client's Twitch audience to influence the Unity environment through Twitch
+            exclusive events, such as spending money to cheer bits, subscribing to the client's channel, etc.
+        </p>
+        <p>The project build was featured live on the client's channel on April 1st, 2023.</p>
+        <p>Development spanned about 2-3 weeks.</p>
+    </div>
+    <div>
+        <div class="description" id="second">
+            <h2>3D Models</h2>
+            <p>The bulk of my contributions were 3D models that served as set dressings for the various scenery.</p>
+            <p>The client's specifications were to keep the models low-poly.</p>
+            <p>Everything was modeled, textured and animated in Blender 3D software.</p>
+            <p>Here are some examples of my work: </p>
+        </div>
+        <div class="center--page">
+            <div class="image--grid">
+                <div class="image"><img src="./images/snail.gif"></div>        
+                <div class="image"><img src="./images/saloon_doors.png"></div>
+                <div class="image"><img src="./images/armchair.png"></div>
+                <div class="image"><img src="./images/barrel.png"></div>
+                <div class="image"><img src="./images/big_cactus.png"></div>
+                <div class="image"><img src="./images/cactus.png"></div>
+                <div class="image"><img src="./images/crown.png"></div>
+                <div class="image"><img src="./images/lighting_rig.png"></div>
+                <div class="image"><img src="./images/newspaper_hat.png"></div>
+                <div class="image"><img src="./images/potted_plant.png"></div>
+                <div class="image"><img src="./images/powered_down.png"></div>
+                <div class="image"><img src="./images/standing_lamp.png"></div>
+            </div>
+        </div>
+        <div>
+            <div class="description" id="third">
+                <h2>Shaders</h2>
+                <p>I created some Unity shaders to the client's specifications:</p>
+            </div>
+            <div class="image--grid">
+                <div class="image"><img src="./images/goo.png"></div>
+                <div class="image"><img src="./images/hologram_shader.png"></div>
+                <div class="image"><img src="./images/TV_guy.png"></div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="description" id="third">
+            <h2>Scripting</h2>
+            <p>Finally, I contributed a little bit of scripting on the project:</p>
+        </div>
+        <div class="script">
+            <input id="collapsible" class="toggle" type="checkbox">
+            <label for="collapsible" class="toggle--label">Click here to unroll script</label>
+            <div class="textarea--wrapper">
+                <textarea id="script" name="reset--script" rows="45" cols="48">
+    using UnityEngine;
+    using UnityEngine.InputSystem;
+
+    public class ResetTwitch : MonoBehaviour
+    {
+        // External References
+        [Header("External References")]
+        [SerializeField] private GameObject twitchLibGameObject;
+        [SerializeField] private float resetDelay;
+
+        // void Start(){}
+
+        // Update is called once per frame
+        void Update()
+        {
+            // If the 1 key is pressed on any frame,
+            if(Keyboard.current.digit1Key.wasPressedThisFrame)
+            {
+                // Switch to IEnumerator function
+                StartCoroutine(resetTwitch());
+            }
+        }
+
+        private IEnumerator resetTwitch()
+        {
+            // Toggle game object off
+            twitchLibGameObject.SetActive(false);
+
+            // Debug
+            Debug.Log("Twitch object is turned off. Delay starting...");
+
+            // Wait 2 seconds
+            yield return new WaitForSeconds(resetDelay);
+
+            // Toggle game object back on
+            twitchLibGameObject.SetActive(true);
+
+            // Debug statement
+            Debug.Log("Twitch object has been turned back on.");
+
+            // Stop coroutine
+            yield break;
+        }
+    }
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="description" id="fourth">
+            <h2>Barry's House: Video</h2>
+            <p>Watch a video of the project here:</p>
+            <p>!! CONTAINS SOME CRUDE LANGUAGE / HUMOR !!</p>
+            <button class="button"><a href="https://youtu.be/CL4Ag2Dv2Io" target="#">Click Here for Video</a></button>
+        </div>
+    </div>
+</main>
+<!-- <footer>
+    <h1>Placeholder text</h1>
+</footer> -->
+</body>
+</html>
